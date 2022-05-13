@@ -1,4 +1,5 @@
 import flask
+from flask import render_template
 from flask.views import MethodView
 from index import Index
 from potd import Potd 

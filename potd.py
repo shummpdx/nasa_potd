@@ -1,7 +1,6 @@
-from flask import redirect, request, url_for, render_template
+from flask import request, render_template
 from flask.views import MethodView
 from google.cloud import vision
-import io
 import spaceModel
 import requests
 
@@ -34,8 +33,10 @@ class Potd(MethodView):
 
         response = client.label_detection(image=image)
         labels = response.label_annotations
+
         try:
             model.insert(jsonResponse['title'], request.form['date'], jsonResponse['url'], jsonResponse['explanation'], jsonResponse["copyright"])
         except:
             model.insert(jsonResponse['title'], request.form['date'], jsonResponse['url'], jsonResponse['explanation'], '')
+
         return render_template('potd.html',jsonResponse=jsonResponse, entries=entries, labels=labels)

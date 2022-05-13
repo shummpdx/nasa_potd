@@ -1,13 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
-<a href={{url_for('potd')}}>Return to search<p></a>
-	<h2> Results </h2>
-	 {% for entry in entries %}
-	 <p class=entry>
-	 <br>title: <a href={{entry.url}}>{{entry.title}}</a>
-	 <br>date: {{entry.date}}
-	 {% if ' ' in entry.copyright  %}
-	 <br>copyright: {{entry.copyright}}
-	 {% endif %}
-	 {% endfor %}
+
+<a href={{url_for('potd')}}>Return to search</a>
+<h2> Results </h2>
+
+	{% for entry in entries %}
+	 	<p class=entry>
+			<br>title: <a href={{entry.url}}>{{entry.title}}</a>
+			<br>date: {{entry.date}}
+			{% if ' ' in entry.copyright  %}
+				<br>copyright: {{entry.copyright}}
+			{% endif %}
+		</p>
+	{% endfor %}
+
 {% endblock %}

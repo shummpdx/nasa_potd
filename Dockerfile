@@ -1,6 +1,6 @@
 FROM google/cloud-sdk
 
-MAINTAINER Sean Humm "hummsean@pdx.edu"
+LABEL author = "hummsean@pdx.edu"
 
 COPY . /app
 

@@ -1,7 +1,6 @@
-from flask import redirect, request, url_for, render_template
+from flask import render_template
 from flask.views import MethodView
 import spaceModel
-import requests
 
 class History(MethodView):
     def get(self):

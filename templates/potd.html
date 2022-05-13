@@ -3,66 +3,62 @@
 	<link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}"	>
 
 	{% if jsonResponse %}
-
-			<div class="title">
-				<h2> {{jsonResponse["title"]}} </h2>
-			</div>
+		<div class="title">
+			<h2> {{jsonResponse["title"]}} </h2>
+		</div>
 
 		<div class="results">
 			<div class="photoResult">
 				<p>
-
-				{% if 'youtube' in jsonResponse["url"] %}
-				<iframe width="420" height="315" src={{jsonResponse["url"]}}></iframe>
-				{% else %}
-					<img src={{jsonResponse["url"]}}>
-				{% endif %}
-
+					{% if 'youtube' in jsonResponse["url"] %}
+						<iframe width="420" height="315" src={{jsonResponse["url"]}}></iframe>
+					{% else %}
+						<img src={{jsonResponse["url"]}}>
+					{% endif %}
 				</p>
 			</div>
 
 			<div class="textResults">
 				<p>Explanation: {{jsonResponse["explanation"]}}</p>
 
-			{% if ' ' in jsonResponse["copyright"]  %}
-				<p> copyright: {{jsonResponse["copyright"]}}</p>
-			{% endif %}
+				{% if ' ' in jsonResponse["copyright"]  %}
+					<p> copyright: {{jsonResponse["copyright"]}}</p>
+				{% endif %}
 
 			</div>
 
 			{% if 'youtube' not in jsonResponse["url"] %}
-
-
-			<div class="label">
-
-			Google Vision has classified the above image with the following labels:
-			{% for label in labels %}
-			<div class="label-item">
-			{{label.description}}
-			</div>
-			{% endfor %}
-			</div>
-
+				<div class="label">
+					Google Vision has classified the above image with the following labels:
+						{% for label in labels %}
+							<div class="label-item">
+								{{label.description}}
+							</div>
+						{% endfor %}
+				</div>
 			{% endif %}
-</div>
+		</div>
 
-<div class="footer">
-
-<div class="date">
+		<div class="footer">
+			<div class="date">
 				<form action="{{url_for('potd') }}" method=post>
-					<p class="heading">Search Date: <input type=date name=date>
-					<input type=submit value=View></p>
+					<p class="heading">
+						Search Date: 
+						<input type=date name=date>
+						<input type=submit value=View>
+					</p>
 				</form>
-</div>
+			</div>
 
-<div class="history">
-
+			<div class="history">
 				<a href={{url_for('history')}}>View past searches<p></a>
-</div>
+			</div>
 
-</div>
+		</div>
+
 	{% else %}	
-<div class="welcome">
+
+		<div class="welcome">
 			<h2> Welcome to the Space Photo of the Day API </h2>
 			<p> Enter in a date to find the Space Photo from that day. </p>
 			<p> You will be shown the image and an explanation of the photo.</p>
@@ -75,16 +71,24 @@
 					<li> The date the photo is from </li>
 					<li> The Copyright </li>
 				</ul>
-			<p style="font-size: large;" > The url to the photo is then given to Google Vision and the subsequent labels it finds will be
-shown to you. </p>
-			<p style="font-size: large;"> Sometimes the photo of the day is actually a video of the day. No Google Vision output will be
-shown with videos. </p>
-<br>
+
+			<p style="font-size: large;"> 
+				The url to the photo is then given to Google Vision and the subsequent labels it finds will be shown to you. 
+			</p>
+
+			<p style="font-size: large;"> 
+				Sometimes the photo of the day is actually a video of the day. No Google Vision output will be shown with videos. 
+			</p>
+
+			<br>
+
 			<form action="{{url_for('potd') }}" method=post>
 				<p class="heading">Date: <input type=date name=date>
 				<input type=submit value=View></p>
 			</form>
-</div>	
-		{% endif %}
+
+		</div>	
+
+	{% endif %}
 
 {% endblock %}

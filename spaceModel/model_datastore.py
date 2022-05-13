@@ -37,7 +37,7 @@ def from_datastore(entity):
 
 class model(Model):
     def __init__(self):
-        self.client = datastore.Client('<PROJECT_NAME_HERE>')
+        self.client = datastore.Client('nasapotdf21')
 
     def select(self):
         query = self.client.query(kind = 'potd')
