@@ -1,0 +1,5 @@
+flask
+google-cloud
+google-cloud-datastore
+google-cloud-vision
+gunicorn

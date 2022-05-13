@@ -1,0 +1,71 @@
+body {
+	background-color: black;
+	color: green;
+	font: 1.3rem Inconsolata, monospace;
+	border: solid green 2px;
+	padding: 10px;
+}
+
+.results{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 20px;
+}
+
+.photoResult{
+	border: solid green 6px;
+}
+
+.textResults{
+
+	padding: 5% 2%;
+	text-align: center;
+}
+
+.dateForm {
+	display: inline-block;
+}
+
+.title {
+	text-align: center;
+	font-size: larger;
+}
+
+p {
+	margin: 0;
+}
+
+.label {
+	display: flex;
+	flex-direction: column;
+}
+
+.label-item {
+	text-align: center;
+}
+
+.flex-item {
+	border: solid green dotted;
+	max-width: 100%;
+	width: 600px;
+	max-height: 100%;
+	height: 450px;
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.date {
+}
+
+.history {
+}
+
+.welcome {
+	padding: 3em;
+}
